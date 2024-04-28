@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:newapp/ui/login_signup/login.dart';
 
 class mySplashscreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _mySplashscreenState extends State<mySplashscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Flutter Tutorial"),
+        child: LottieBuilder.asset("assets/animations/loading_1.json"),
       ),
     );
   }
