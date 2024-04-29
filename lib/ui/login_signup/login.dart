@@ -47,12 +47,13 @@ class _loginState extends State<login> {
                       prefixIcon: Icon(Icons.email),
                     ),
                     validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Enter Email";
-                      }
                       bool emialValid = RegExp(
                               r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_^{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                          .hasMatch(value);
+                          .hasMatch(value!);
+                      if (value.isEmpty) {
+                        return "Enter Email";
+                      }
+
                       if (!emialValid) {
                         return "Enter Valid Email";
                       }
@@ -87,7 +88,7 @@ class _loginState extends State<login> {
                   InkWell(
                     onTap: () {
                       if (_formfield.currentState!.validate()) {
-                        print("Success");
+                        print("Data Added Successfully");
                         emailcontroller.clear();
                         passcontroller.clear();
                       }
