@@ -46,6 +46,17 @@ class _loginState extends State<login> {
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.email),
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Enter Email";
+                      }
+                      bool emialValid = RegExp(
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_^{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(value);
+                      if (!emialValid) {
+                        return "Enter Valid Email";
+                      }
+                    },
                   ),
                   const SizedBox(
                     height: 20,
@@ -53,11 +64,12 @@ class _loginState extends State<login> {
                   TextFormField(
                     keyboardType: TextInputType.visiblePassword,
                     controller: passcontroller,
+                    obscureText: passToggle,
                     decoration: InputDecoration(
                       labelText: "Password",
                       border: const OutlineInputBorder(),
                       prefixIcon: const Icon(Icons.lock),
-                      suffix: InkWell(
+                      suffixIcon: InkWell(
                         onTap: () {
                           setState(() {
                             passToggle = !passToggle;
@@ -73,7 +85,13 @@ class _loginState extends State<login> {
                     height: 40,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      if (_formfield.currentState!.validate()) {
+                        print("Success");
+                        emailcontroller.clear();
+                        passcontroller.clear();
+                      }
+                    },
                     child: Container(
                         height: 50,
                         decoration: BoxDecoration(
