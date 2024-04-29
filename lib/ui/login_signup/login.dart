@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newapp/ui/login_signup/signup.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -41,13 +42,13 @@ class _loginState extends State<login> {
                     width: 150,
                     height: 150,
                   ),
-                  SizedBox(height: 10),
-                  Text(
+                  const SizedBox(height: 10),
+                  const Text(
                     "Welcome ",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                     child: Text(
                       "Sign in To Continue",
                       style: TextStyle(fontWeight: FontWeight.bold),
@@ -88,7 +89,7 @@ class _loginState extends State<login> {
                     decoration: InputDecoration(
                       labelText: "Password",
                       border: const OutlineInputBorder(),
-                      prefixIcon: const Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock_open),
                       suffixIcon: InkWell(
                         onTap: () {
                           setState(() {
@@ -128,7 +129,7 @@ class _loginState extends State<login> {
                           ),
                         )),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -141,7 +142,12 @@ class _loginState extends State<login> {
                         ),
                       ),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => const signup()));
+                          },
                           child: const Text(
                             "Sign Up",
                             style: TextStyle(
