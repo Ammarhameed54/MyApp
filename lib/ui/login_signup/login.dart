@@ -13,6 +13,12 @@ class _loginState extends State<login> {
   final passcontroller = TextEditingController();
   bool passToggle = true;
   @override
+  void dispose() {
+    emailcontroller;
+    passcontroller;
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -35,8 +41,20 @@ class _loginState extends State<login> {
                     width: 150,
                     height: 150,
                   ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Welcome ",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    child: Text(
+                      "Sign in To Continue",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
@@ -57,6 +75,7 @@ class _loginState extends State<login> {
                       if (!emialValid) {
                         return "Enter Valid Email";
                       }
+                      return null;
                     },
                   ),
                   const SizedBox(
