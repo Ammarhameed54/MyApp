@@ -25,7 +25,7 @@ class _loginState extends State<login> {
         appBar: AppBar(
           title: const Text("Login"),
           centerTitle: true,
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
           backgroundColor: Colors.purpleAccent,
         ),
         body: SingleChildScrollView(
@@ -143,10 +143,8 @@ class _loginState extends State<login> {
                       ),
                       TextButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const signup()));
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => signup()));
                           },
                           child: const Text(
                             "Sign Up",

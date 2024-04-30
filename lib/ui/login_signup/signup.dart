@@ -11,13 +11,22 @@ class _signupState extends State<signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign Up"),
-        backgroundColor: Colors.blueAccent,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
-      body: Text("Sign Up"),
-    );
+        appBar: AppBar(
+          title: Text("Sign Up"),
+          backgroundColor: Colors.blueAccent,
+          centerTitle: true,
+          automaticallyImplyLeading: true,
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              Image.asset(
+                "assets/images/auth.png",
+                width: 200,
+                height: 200,
+              )
+            ],
+          ),
+        ));
   }
 }
